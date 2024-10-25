@@ -30,8 +30,8 @@ export const updateTableSchema = async () => {
 
   // Copy data from old table to new table
   await db.execAsync(`
-    INSERT INTO images_new (id, name, uri)
-    SELECT id, name, uri FROM images;
+    INSERT INTO images_new (id, name, uri, species)
+    SELECT id, name, uri, species FROM images;
   `);
 
   // Drop the old table
